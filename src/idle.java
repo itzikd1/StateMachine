@@ -3,7 +3,6 @@ public class idle implements State {
     Machine machine;
 
     public idle(Machine newMachine) {
-
         machine = newMachine;
 
     }
@@ -20,6 +19,7 @@ public class idle implements State {
 
     @Override
     public void idle() {
+        System.out.println("machine is in idle mode");
 
     }
 

@@ -54,14 +54,18 @@ public class Machine {
 
     //Here we do all the function of the program
 
-    public void turnOn() {
-        System.out.println("Internet is on");
-        this.internetOn = true;
+    public void turnOnMovieDownlaoder() {
+        state.movieDownloaderOn();
+
     }
 
-    public void turnOff() {
-        System.out.println("Internet is off");
-        this.internetOn = false;
+    public void turnOffMovieDownlaoder() {
+        state.movieDownloaderOff();
+
+
     }
 
+    public void idle() {
+        System.out.println("idle mode");
+    }
 }

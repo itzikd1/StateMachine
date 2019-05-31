@@ -3,24 +3,26 @@ public class movieDownloaderOn implements State {
     Machine machine;
 
     public movieDownloaderOn(Machine newMachine) {
-
         machine = newMachine;
+        machine.setState(machine.idle);
 
     }
 
     @Override
     public void movieDownloaderOff() {
-
+        System.out.println("Turning Movie downloader off");
+        machine.setState(machine.movieDownloaderOff);
+        System.out.println("Movie downloader is off");
     }
 
     @Override
     public void movieDownloaderOn() {
-
+        System.out.println("Movie downloader is on already");
     }
 
     @Override
     public void idle() {
-
+        System.out.println("idle mode");
     }
 
     @Override
