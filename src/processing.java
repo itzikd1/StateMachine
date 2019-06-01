@@ -1,80 +1,85 @@
-public class processing implements State {
+public class processing extends On {
 
     Machine machine;
 
     public processing(Machine newMachine) {
-
+        super(newMachine);
         machine = newMachine;
 
     }
 
+
     @Override
-    public void movieDownloaderOff() {
+    public void turnOn() {
 
     }
 
     @Override
-    public void movieDownloaderOn() {
+    public void turnOff() {
+        System.out.println("exit processing state");
+        super.turnOff();
+    }
+
+    public void doMethod() {
+        System.out.println("exit processing state");
+        System.out.println("enter diskFree state");
+        machine.file = machine.movies.get(0);
+        machine.setState(machine.diskFree);
 
     }
 
     @Override
-    public void idle() {
+    public void internetOn() {
 
     }
 
     @Override
-    public void processing() {
+    public void internetOff() {
 
     }
 
     @Override
-    public void deleteFile() {
+    public void fileRequest() {
 
     }
 
     @Override
-    public void diskFree() {
+    public void downloadAborted() {
 
     }
 
     @Override
-    public void diskFull() {
+    public void downloadError() {
 
     }
 
     @Override
-    public void downloadFile() {
+    public void errorFixed() {
 
     }
 
     @Override
-    public void downloading() {
+    public void movieOn() {
 
     }
 
     @Override
-    public void startWatching() {
+    public void restartMovie() {
 
     }
 
     @Override
-    public void pause() {
+    public void holdMovie() {
 
     }
 
     @Override
-    public void watching() {
+    public void movieOff() {
 
     }
 
     @Override
-    public void error() {
-
-    }
-
-    @Override
-    public void internetStatus() {
+    public void resume() {
 
     }
 }

@@ -1,80 +1,87 @@
-public class diskFree implements State {
+public class diskFree extends On {
 
     Machine machine;
 
     public diskFree(Machine newMachine) {
-
+        super(newMachine);
         machine = newMachine;
 
     }
 
     @Override
-    public void movieDownloaderOff() {
+    public void turnOn() {
 
     }
 
     @Override
-    public void movieDownloaderOn() {
+    public void turnOff() {
+        System.out.println("exit diskFree state");
+        super.turnOff();
+    }
+
+    public void checkCondition()
+    {
+        if(machine.file.getSize() > machine.capacity)
+        {
+            System.out.println("Alert - There is no place in the disk!");
+            System.out.println("exit diskFree state");
+            System.out.println("enter diskFull state");
+            machine.setState(machine.diskFull);
+        }
+    }
+
+    @Override
+    public void internetOn() {
 
     }
 
     @Override
-    public void idle() {
+    public void internetOff() {
 
     }
 
     @Override
-    public void processing() {
+    public void fileRequest() {
 
     }
 
     @Override
-    public void deleteFile() {
+    public void downloadAborted() {
 
     }
 
     @Override
-    public void diskFree() {
+    public void downloadError() {
 
     }
 
     @Override
-    public void diskFull() {
+    public void errorFixed() {
 
     }
 
     @Override
-    public void downloadFile() {
+    public void movieOn() {
 
     }
 
     @Override
-    public void downloading() {
+    public void restartMovie() {
 
     }
 
     @Override
-    public void startWatching() {
+    public void holdMovie() {
 
     }
 
     @Override
-    public void pause() {
+    public void movieOff() {
 
     }
 
     @Override
-    public void watching() {
-
-    }
-
-    @Override
-    public void error() {
-
-    }
-
-    @Override
-    public void internetStatus() {
+    public void resume() {
 
     }
 }

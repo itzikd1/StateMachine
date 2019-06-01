@@ -1,12 +1,106 @@
-public class idle implements State {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+
+public class idle extends On {
 
     Machine machine;
 
+
     public idle(Machine newMachine) {
+        super(newMachine);
         machine = newMachine;
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("enter idle state");
+        machine.setState(machine.idle);
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("exit idle state");
+        super.turnOff();
 
     }
 
+    @Override
+    public void fileRequest() {
+        System.out.println("Enter the size of the file");
+        //to ask from the user for size
+        System.out.println("to ask from the user for size here!!!!!!!");
+        File newFile = new File(105);
+        machine.movies.add(newFile);
+        System.out.println("New file request");
+        queueNotEmpty();
+    }
+
+    private void queueNotEmpty() {
+        if(machine.capacity > 0 && machine.internetOn && !machine.fileInDownload)
+        {
+            machine.fileInDownload = true;
+            System.out.println("exit idle state");
+            System.out.println("enter processing state");
+            machine.setState(machine.processing);
+
+        }
+
+    }
+
+    @Override
+    public void internetOn() {
+
+    }
+
+    @Override
+    public void internetOff() {
+
+    }
+
+
+
+    @Override
+    public void downloadAborted() {
+
+    }
+
+    @Override
+    public void downloadError() {
+
+    }
+
+    @Override
+    public void errorFixed() {
+
+    }
+
+    @Override
+    public void movieOn() {
+
+    }
+
+    @Override
+    public void restartMovie() {
+
+    }
+
+    @Override
+    public void holdMovie() {
+
+    }
+
+    @Override
+    public void movieOff() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    /*
     @Override
     public void movieDownloaderOff() {
 
@@ -77,4 +171,5 @@ public class idle implements State {
     public void internetStatus() {
 
     }
+    */
 }

@@ -1,13 +1,19 @@
-public class downloadFile implements State {
+public abstract class downloadFile extends On {
 
     Machine machine;
 
     public downloadFile(Machine newMachine) {
-
+        super(newMachine);
         machine = newMachine;
 
     }
 
+    @Override
+    public void turnOff() {
+        System.out.println("exit downloadFile state");
+        super.turnOff();
+    }
+/*
     @Override
     public void movieDownloaderOff() {
 
@@ -76,5 +82,5 @@ public class downloadFile implements State {
     @Override
     public void internetStatus() {
 
-    }
+    }*/
 }

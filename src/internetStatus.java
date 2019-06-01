@@ -1,80 +1,77 @@
-public class internetStatus implements State {
+public class internetStatus extends On {
 
     Machine machine;
 
     public internetStatus(Machine newMachine) {
-
+        super(newMachine);
         machine = newMachine;
 
     }
 
+
     @Override
-    public void movieDownloaderOff() {
+    public void turnOn() {
 
     }
 
     @Override
-    public void movieDownloaderOn() {
+    public void turnOff() {
+        System.out.println("exit internetStatus state");
+        super.turnOff();
+    }
+
+    @Override
+    public void internetOn() {
 
     }
 
     @Override
-    public void idle() {
+    public void internetOff() {
 
     }
 
     @Override
-    public void processing() {
+    public void fileRequest() {
 
     }
 
     @Override
-    public void deleteFile() {
+    public void downloadAborted() {
 
     }
 
     @Override
-    public void diskFree() {
+    public void downloadError() {
 
     }
 
     @Override
-    public void diskFull() {
+    public void errorFixed() {
 
     }
 
     @Override
-    public void downloadFile() {
+    public void movieOn() {
 
     }
 
     @Override
-    public void downloading() {
+    public void restartMovie() {
 
     }
 
     @Override
-    public void startWatching() {
+    public void holdMovie() {
 
     }
 
     @Override
-    public void pause() {
+    public void movieOff() {
 
     }
 
     @Override
-    public void watching() {
-
-    }
-
-    @Override
-    public void error() {
-
-    }
-
-    @Override
-    public void internetStatus() {
+    public void resume() {
 
     }
 }
