@@ -7,6 +7,12 @@ public abstract class downloadFile extends On {
         machine = newMachine;
 
     }
+
+    @Override
+    public void turnOff() {
+        System.out.println("exit downloadFile state");
+        super.turnOff();
+    }
 /*
     @Override
     public void movieDownloaderOff() {

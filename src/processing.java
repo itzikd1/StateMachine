@@ -16,6 +16,15 @@ public class processing extends On {
 
     @Override
     public void turnOff() {
+        System.out.println("exit processing state");
+        super.turnOff();
+    }
+
+    public void doMethod() {
+        System.out.println("exit processing state");
+        System.out.println("enter diskFree state");
+        machine.file = machine.movies.get(0);
+        machine.setState(machine.diskFree);
 
     }
 

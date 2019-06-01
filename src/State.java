@@ -16,6 +16,7 @@ public interface State {
     void movieOff();
     void resume();
 
+
     // List of all the difference states that exist in the system
 
    /* void movieDownloaderOff();

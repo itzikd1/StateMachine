@@ -16,7 +16,8 @@ public class internetStatus extends On {
 
     @Override
     public void turnOff() {
-
+        System.out.println("exit internetStatus state");
+        super.turnOff();
     }
 
     @Override

@@ -1,6 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+
 public class idle extends On {
 
     Machine machine;
+
 
     public idle(Machine newMachine) {
         super(newMachine);
@@ -21,6 +26,29 @@ public class idle extends On {
     }
 
     @Override
+    public void fileRequest() {
+        System.out.println("Enter the size of the file");
+        //to ask from the user for size
+        System.out.println("to ask from the user for size here!!!!!!!");
+        File newFile = new File(105);
+        machine.movies.add(newFile);
+        System.out.println("New file request");
+        queueNotEmpty();
+    }
+
+    private void queueNotEmpty() {
+        if(machine.capacity > 0 && machine.internetOn && !machine.fileInDownload)
+        {
+            machine.fileInDownload = true;
+            System.out.println("exit idle state");
+            System.out.println("enter processing state");
+            machine.setState(machine.processing);
+
+        }
+
+    }
+
+    @Override
     public void internetOn() {
 
     }
@@ -30,10 +58,7 @@ public class idle extends On {
 
     }
 
-    @Override
-    public void fileRequest() {
 
-    }
 
     @Override
     public void downloadAborted() {

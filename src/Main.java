@@ -5,7 +5,11 @@ public class Main {
         Machine machine = new Machine();
         //State currentState = machine.getState();
         machine.getState().turnOn();
-        machine.getState().turnOff();
+        //machine.getState().turnOff();
+        machine.getState().fileRequest();
+
+        machine.getState().fileRequest();
+
 
 
         /*

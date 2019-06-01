@@ -15,7 +15,29 @@ public class diskFull extends On {
 
     @Override
     public void turnOff() {
+        System.out.println("exit diskFull state");
+        super.turnOff();
+    }
 
+    public void checkCondition()
+    {
+        if(!machine.second) {
+            machine.second = true;
+            System.out.println("exit diskFull state");
+            System.out.println("enter diskFree state");
+            machine.setState(machine.diskFree);
+        }
+        else
+        {
+            machine.second = false;
+            machine.fileInDownload = false;
+            machine.file = null;
+            machine.userScore-=1;
+            machine.second = true;
+            System.out.println("exit diskFull state");
+            System.out.println("enter idle state");
+            machine.setState(machine.idle);
+        }
     }
 
     @Override

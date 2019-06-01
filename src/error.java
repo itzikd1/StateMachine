@@ -16,7 +16,8 @@ public class error extends On {
 
     @Override
     public void turnOff() {
-
+        System.out.println("exit error state");
+        super.turnOff();
     }
 
     @Override

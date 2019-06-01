@@ -8,9 +8,14 @@ public class Off implements State {
 
     @Override
     public void turnOn() {
-        System.out.println("exit off state");
-        System.out.println("enter on state");
-        machine.on.turnOn();
+        if(machine.internetOn) {
+            System.out.println("exit off state");
+            System.out.println("enter on state");
+            machine.on.turnOn();
+        }
+        else
+            System.out.println("The internet is off");
+
     }
 
     @Override

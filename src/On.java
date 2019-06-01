@@ -18,8 +18,9 @@ public abstract class On implements State {
     {
         System.out.println("enter idle state");
         machine.setState(machine.idle);
-
     }
+
+
 
     /*
     @Override

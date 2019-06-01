@@ -15,7 +15,19 @@ public class diskFree extends On {
 
     @Override
     public void turnOff() {
+        System.out.println("exit diskFree state");
+        super.turnOff();
+    }
 
+    public void checkCondition()
+    {
+        if(machine.file.getSize() > machine.capacity)
+        {
+            System.out.println("Alert - There is no place in the disk!");
+            System.out.println("exit diskFree state");
+            System.out.println("enter diskFull state");
+            machine.setState(machine.diskFull);
+        }
     }
 
     @Override

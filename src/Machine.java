@@ -1,5 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Machine {
 
+    //to change the list to queue
+    public List<File> movies;
     //all the states that exist in machine
     public State off;
     public State on;
@@ -15,15 +20,20 @@ public class Machine {
     public State watching;
     public State error;
     public State internetStatus;
+    //the file we pulled in processing
+    public File file;
 
     //current state - we change this inorder to change state
     State state;
 
     //global variables
-    boolean internetOn = false;
+
+    //to understand how to turn of and turn on the internet
+    boolean internetOn = true;
     int capacity = 100;
     boolean second = false;
     int userScore = 0;
+    public boolean fileInDownload = false;
 
     public Machine() {
 
@@ -41,6 +51,7 @@ public class Machine {
         watching = new watching(this);
         error = new error(this);
         internetStatus = new internetStatus(this);
+        movies = new ArrayList<>();
 
         state = off;
 
@@ -49,7 +60,21 @@ public class Machine {
 
     //Change state
     void setState(State newState) {
+
         state = newState;
+
+        if(state instanceof processing)
+        {
+            ((processing) state).doMethod();
+        }
+        else if(state instanceof diskFree)
+        {
+            ((diskFree) state).checkCondition();
+        }
+        else if(state instanceof diskFull)
+        {
+            ((diskFull) state).checkCondition();
+        }
     }
 
 
