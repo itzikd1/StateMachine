@@ -8,7 +8,6 @@ public class Main {
         //machine.getState().turnOff();
         machine.getState().fileRequest();
 
-        machine.getState().fileRequest();
 
 
 
