@@ -1,20 +1,20 @@
 public class Machine {
 
     //all the states that exist in machine
-    State movieDownloaderOff;
-    State movieDownloaderOn;
-    State idle;
-    State processing;
-    State deleteFile;
-    State diskFree;
-    State diskFull;
-    State downloadFile;
-    State downloading;
-    State startWatching;
-    State pause;
-    State watching;
-    State error;
-    State internetStatus;
+    public State off;
+    public State on;
+    public State idle;
+    public State processing;
+    public State deleteFile;
+    public State diskFree;
+    public State diskFull;
+    public State downloadFile;
+    public State downloading;
+    public State startWatching;
+    public State pause;
+    public State watching;
+    public State error;
+    public State internetStatus;
 
     //current state - we change this inorder to change state
     State state;
@@ -27,14 +27,14 @@ public class Machine {
 
     public Machine() {
 
-        movieDownloaderOff = new movieDownloaderOff(this);
-        movieDownloaderOn = new movieDownloaderOn(this);
+        off = new Off(this);
+        on = new idle(this);
         idle = new idle(this);
         processing = new processing(this);
         deleteFile = new deleteFile(this);
         diskFree = new diskFree(this);
         diskFull = new diskFull(this);
-        downloadFile = new downloadFile(this);
+        downloadFile = new downloading(this);
         downloading = new downloading(this);
         startWatching = new startWatching(this);
         pause = new pause(this);
@@ -42,7 +42,7 @@ public class Machine {
         error = new error(this);
         internetStatus = new internetStatus(this);
 
-        state = movieDownloaderOff;
+        state = off;
 
     }
 
@@ -52,8 +52,13 @@ public class Machine {
         state = newState;
     }
 
-    //Here we do all the function of the program
 
+    State getState() {
+        return state;
+    }
+
+    //Here we do all the function of the program
+/*
     public void turnOnMovieDownlaoder() {
         state.movieDownloaderOn();
 
@@ -68,4 +73,5 @@ public class Machine {
     public void idle() {
         System.out.println("idle mode");
     }
+    */
 }

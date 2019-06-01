@@ -1,13 +1,27 @@
-public class movieDownloaderOn implements State {
+public abstract class On implements State {
 
     Machine machine;
 
-    public movieDownloaderOn(Machine newMachine) {
+    public On(Machine newMachine) {
         machine = newMachine;
+
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("exit on state");
+        System.out.println("enter off state");
+        machine.setState(machine.off);
+    }
+
+    public void turnOn()
+    {
+        System.out.println("enter idle state");
         machine.setState(machine.idle);
 
     }
 
+    /*
     @Override
     public void movieDownloaderOff() {
         System.out.println("Turning Movie downloader off");
@@ -79,4 +93,10 @@ public class movieDownloaderOn implements State {
     public void internetStatus() {
 
     }
+
+    public String getStateName()
+    {
+        return "On";
+    }
+    */
 }

@@ -1,80 +1,75 @@
-public class diskFree implements State {
+public class diskFree extends On {
 
     Machine machine;
 
     public diskFree(Machine newMachine) {
-
+        super(newMachine);
         machine = newMachine;
 
     }
 
     @Override
-    public void movieDownloaderOff() {
+    public void turnOn() {
 
     }
 
     @Override
-    public void movieDownloaderOn() {
+    public void turnOff() {
 
     }
 
     @Override
-    public void idle() {
+    public void internetOn() {
 
     }
 
     @Override
-    public void processing() {
+    public void internetOff() {
 
     }
 
     @Override
-    public void deleteFile() {
+    public void fileRequest() {
 
     }
 
     @Override
-    public void diskFree() {
+    public void downloadAborted() {
 
     }
 
     @Override
-    public void diskFull() {
+    public void downloadError() {
 
     }
 
     @Override
-    public void downloadFile() {
+    public void errorFixed() {
 
     }
 
     @Override
-    public void downloading() {
+    public void movieOn() {
 
     }
 
     @Override
-    public void startWatching() {
+    public void restartMovie() {
 
     }
 
     @Override
-    public void pause() {
+    public void holdMovie() {
 
     }
 
     @Override
-    public void watching() {
+    public void movieOff() {
 
     }
 
     @Override
-    public void error() {
-
-    }
-
-    @Override
-    public void internetStatus() {
+    public void resume() {
 
     }
 }

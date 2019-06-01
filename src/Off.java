@@ -1,11 +1,80 @@
-public class movieDownloaderOff implements State {
+public class Off implements State {
 
     Machine machine;
 
-    public movieDownloaderOff(Machine newMachine) {
+    public Off(Machine newMachine) {
         machine = newMachine;
     }
 
+    @Override
+    public void turnOn() {
+        System.out.println("exit off state");
+        System.out.println("enter on state");
+        machine.on.turnOn();
+    }
+
+    @Override
+    public void turnOff() {
+
+    }
+
+    @Override
+    public void internetOn() {
+
+    }
+
+    @Override
+    public void internetOff() {
+
+    }
+
+    @Override
+    public void fileRequest() {
+
+    }
+
+    @Override
+    public void downloadAborted() {
+
+    }
+
+    @Override
+    public void downloadError() {
+
+    }
+
+    @Override
+    public void errorFixed() {
+
+    }
+
+    @Override
+    public void movieOn() {
+
+    }
+
+    @Override
+    public void restartMovie() {
+
+    }
+
+    @Override
+    public void holdMovie() {
+
+    }
+
+    @Override
+    public void movieOff() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+
+    /*
     @Override
     public void movieDownloaderOff() {
         System.out.println("Movie downloader is off already");
@@ -77,4 +146,10 @@ public class movieDownloaderOff implements State {
     public void internetStatus() {
         System.out.println("You must turn on movie downloader first");
     }
+
+    public String getStateName()
+    {
+        return "Off";
+    }
+    */
 }
