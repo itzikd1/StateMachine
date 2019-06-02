@@ -5,6 +5,7 @@ import java.util.Queue;
 public class idle extends On {
 
     Machine machine;
+    File newFile;
 
 
     public idle(Machine newMachine) {
@@ -28,17 +29,17 @@ public class idle extends On {
     @Override
     public void fileRequest() {
         System.out.println("Enter the size of the file");
-        //to ask from the user for size
+        // TODO: 02/06/2019 Itzik to ask from the user for size
         System.out.println("to ask from the user for size here!!!!!!!");
-        File newFile = new File(105);
+        newFile = new File(105);
         machine.movies.add(newFile);
         System.out.println("New file request");
         queueNotEmpty();
     }
 
     private void queueNotEmpty() {
-        if(machine.capacity > 0 && machine.internetOn && !machine.fileInDownload)
-        {
+        if(machine.capacity > newFile.getSize() && machine.internetOn && !machine.fileInDownload)
+        {// TODO: 02/06/2019 changed from 0 to filesize Itzik
             machine.fileInDownload = true;
             System.out.println("exit idle state");
             System.out.println("enter processing state");

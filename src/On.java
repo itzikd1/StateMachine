@@ -16,7 +16,7 @@ public abstract class On implements State {
 
     public void turnOn()
     {
-        System.out.println("enter idle state");
+        System.out.println("enter on state");
         machine.setState(machine.idle);
     }
 

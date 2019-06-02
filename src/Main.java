@@ -7,6 +7,8 @@ public class Main {
         machine.getState().turnOn();
         //machine.getState().turnOff();
         machine.getState().fileRequest();
+        machine.getState().turnOff();
+        machine.getState().turnOn();
 
 
 

@@ -28,7 +28,7 @@ public class Machine {
 
     //global variables
 
-    //to understand how to turn of and turn on the internet
+    //to understand how to turn off and turn on the internet
     boolean internetOn = true;
     int capacity = 100;
     boolean second = false;
@@ -37,6 +37,7 @@ public class Machine {
 
     public Machine() {
 
+        // TODO: 02/06/2019 both on and idle are "new idle"maybe need to fix?  Itzik
         off = new Off(this);
         on = new idle(this);
         idle = new idle(this);

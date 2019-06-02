@@ -28,6 +28,11 @@ public class diskFree extends On {
             System.out.println("enter diskFull state");
             machine.setState(machine.diskFull);
         }
+        else if(machine.internetOn && machine.capacity>=machine.file.getSize()){
+
+
+
+        }
     }
 
     @Override

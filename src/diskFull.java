@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class diskFull extends On {
 
     Machine machine;
@@ -19,8 +21,21 @@ public class diskFull extends On {
         super.turnOff();
     }
 
-    public void checkCondition()
-    {
+    public void checkCondition() throws InterruptedException {
+        if(machine.second) {
+            machine.second = false;
+            machine.fileInDownload = false;
+            machine.file = null;
+            machine.userScore -= 1;
+//            machine.second = true; // TODO: 02/06/2019 i think this is a mistake  Itzik
+            System.out.println("exit diskFull state");
+            System.out.println("enter idle state");
+            machine.setState(machine.idle);
+        }
+        else {
+            System.out.println("Delay 4 seconds");
+            TimeUnit.SECONDS.sleep(4);
+        }
         if(!machine.second) {
             machine.second = true;
             System.out.println("exit diskFull state");
@@ -32,7 +47,7 @@ public class diskFull extends On {
             machine.second = false;
             machine.fileInDownload = false;
             machine.file = null;
-            machine.userScore-=1;
+            machine.userScore -= 1;
             machine.second = true;
             System.out.println("exit diskFull state");
             System.out.println("enter idle state");
