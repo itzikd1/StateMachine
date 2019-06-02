@@ -29,7 +29,7 @@ public class diskFree extends On {
             machine.setState(machine.diskFull);
         }
         else if(machine.internetOn && machine.capacity>=machine.file.getSize()){
-
+            machine.setState(machine.downloadFile);
 
 
         }
